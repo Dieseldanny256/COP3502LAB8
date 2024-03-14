@@ -36,7 +36,6 @@ void merge(int pData[], int l, int mid, int r)
 		//If we've reached the end of the left portion
 		if (index1 >= mid+1 && index2 < r+1)
 		{
-			//printf("Reached end of left subarray, added %d\n", pData[index2]);
 			temp[curr] = pData[index2];
 			curr++;
 			index2++;
@@ -45,22 +44,19 @@ void merge(int pData[], int l, int mid, int r)
 		//If we've reached the end of the right portion
 		if (index1 < mid+1 && index2 >= r+1)
 		{
-			//printf("Reached end of left subarray, added %d\n", pData[index1]);
 			temp[curr] = pData[index1];
 			curr++;
 			index1++;
 			continue;
 		}
-		//Otherwise put the lesser value into pData
+		//Otherwise put the lesser value into temp
 		if (pData[index1] <= pData[index2])
 		{
-			//printf("%d was lesser\n", pData[index1]);
 			temp[curr] = pData[index1];
 			curr++;
 			index1++;
 			continue;
 		}
-		//printf("%d was lesser\n", pData[index2]);
 		temp[curr] = pData[index2];
 		curr++;
 		index2++;
@@ -70,7 +66,6 @@ void merge(int pData[], int l, int mid, int r)
 	for (int i = l; i < r+1; i++)
 	{
 		pData[i] = temp[i];
-		//printf("%d, ", pData[i]);
 	}
 	DeAlloc(temp);
 }
